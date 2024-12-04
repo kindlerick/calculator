@@ -16,7 +16,7 @@ html, body {
 }
 
 
-#calculatorBody {
+.calculatorBody {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ html, body {
 }
 
 
-#numBody {
+.numBody {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly; 
@@ -37,7 +37,7 @@ html, body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#numKey {
+.numKey {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,11 +52,11 @@ html, body {
 }
 
 
-#numKey:nth-child(10) {
+.numKey:nth-child(10) {
     width: 18vh;
 }
 
-#evalPadBody {
+.evalPadBody {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -72,7 +72,7 @@ html, body {
 
 }
 
-#evalKey {
+.evalKey {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@ html, body {
 }
 
 
-#topBody {
+.topBody {
     display: flex;
     justify-content: start;
     flex-direction: row;
@@ -97,7 +97,7 @@ html, body {
     gap: 2px;
 }
 
-#lowerBody {
+.lowerBody {
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -106,7 +106,7 @@ html, body {
     height: 45vh;
 }
 
-#evalWindow {
+.evalWindow {
     display: flex;
     justify-content: center;
     height: 15vh;
@@ -118,7 +118,7 @@ html, body {
 
 }
 
-#evalInputWindow {
+.evalInputWindow {
     justify-content: center;
     align-self: center;
     height: 5vh;
@@ -127,7 +127,7 @@ html, body {
 }
 
 
-#evalKeyWindow {
+.evalKeyWindow {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -141,7 +141,7 @@ html, body {
 
 }
 
-#topEvalKey {
+.topEvalKey {
     display: flex;
     justify-content: center;
     align-items: center;
