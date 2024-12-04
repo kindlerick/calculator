@@ -3,21 +3,29 @@ const calculatorBody = document.createElement("div");
 calculatorBody.id = "calculatorBody";
 calculatorContainer.appendChild(calculatorBody);
 
+const calculatorLowerBody = document.createElement("div");
+const calculatorTopBody = document.createElement("div");
+
+calculatorTopBody.id = "topBody";
+calculatorBody.appendChild(calculatorTopBody);
+
+calculatorLowerBody.id = "lowerBody";
+calculatorBody.appendChild(calculatorLowerBody);
+
+const topPadArray = ["DEL", "="];
 
 const numPadArray = ["7","8","9","4","5","6","1","2","3","0","."];
 
 const evalPadArray = ["-", "+", "*", "/"];
 
-// evalPad
-
 function createEvalPad() {
 
-    const calcBody = document.querySelector("#calculatorBody");
+    const lowerBody = document.querySelector("#lowerBody");
 
-    if(calcBody) {
+    if(lowerBody) {
         const evalPadBody = document.createElement("div");
         evalPadBody.id = "evalPadBody";
-        calcBody.appendChild(evalPadBody);
+        lowerBody.appendChild(evalPadBody);
     } else {
         console.error("calculatorBody not found!");
     }
@@ -36,12 +44,12 @@ function populateEvalPad() {
 
 function createNumPad() {
 
-    const calcBody = document.querySelector("#calculatorBody");
+    const lowerBody = document.querySelector("#lowerBody");
 
-    if(calcBody) {
+    if(lowerBody) {
         const numBody = document.createElement("div");
         numBody.id = "numBody";
-        calcBody.appendChild(numBody);
+        lowerBody.appendChild(numBody);
     } else {
         console.error("calculatorBody not found!");
     }
@@ -58,10 +66,53 @@ function populateNumPad() {
     }
 }
 
+
+function createEvalWindow() {
+
+    const topBody = document.querySelector("#topBody");
+
+    if(topBody) {
+        const evalWindow = document.createElement("div");
+        evalWindow.id = "evalWindow";
+        topBody.appendChild(evalWindow);
+    } else {
+        console.error("calculatorBody not found!");
+    }
+
+}
+
+function createEvalInputWindow() {
+
+    const evalWindow = document.querySelector("#evalWindow");
+    if(evalWindow) {
+        const evalInputWindow = document.createElement("input");
+        evalInputWindow.id = "evalInputWindow";
+        evalWindow.appendChild(evalInputWindow);
+    } else {
+        console.error("calculatorBody not found!");
+    }
+}
+
+function createTopEvalPad() {
+
+    const topBody = document.querySelector("#topBody");
+    const evalKeyWindow = document.createElement("div");
+    evalKeyWindow.id = "evalKeyWindow";
+    topBody.appendChild(evalKeyWindow);
+
+    for(let i = 0; i < topPadArray.length; i++) {
+        let topEvalKey = document.createElement("div");
+        topEvalKey.textContent = topPadArray[i];
+        topEvalKey.id = "topEvalKey";
+        evalKeyWindow.appendChild(topEvalKey);
+    }
+}
 // evalWindow
 
-
-createNumPad();
-populateNumPad();
-createEvalPad();
-populateEvalPad();
+ createNumPad();
+ populateNumPad();
+ createEvalPad();
+ populateEvalPad();
+ createEvalWindow();
+ createEvalInputWindow();
+ createTopEvalPad();
