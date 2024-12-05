@@ -120,6 +120,8 @@ function attachListeners() {
 
     const outputWindow = document.querySelector('.evalInputWindow');
 
+    let numArray = [];
+
     const numKey = document.querySelectorAll('.numKey');
     numKey.forEach((key) => {
         key.addEventListener('click', () => {
@@ -132,7 +134,7 @@ function attachListeners() {
     evalKey.forEach((key => {
         key.addEventListener('click', () => {
         let evalKeyId = key.id;
-        outputWindow.value += evalKeyId; 
+        outputWindow.value += evalKeyId;
         })
     }))
 
@@ -147,6 +149,12 @@ function attachListeners() {
         console.log("sum clicked");
     })
 }
+
+function operate() {
+
+
+}
+
  createNumPad();
  populateNumPad();
  createEvalPad();
@@ -155,3 +163,4 @@ function attachListeners() {
  createEvalInputWindow();
  createTopEvalPad();
  attachListeners();
+
