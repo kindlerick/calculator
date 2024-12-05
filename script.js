@@ -93,6 +93,7 @@ function createEvalInputWindow() {
     if(evalWindow) {
         const evalInputWindow = document.createElement("input");
         evalInputWindow.classList.add('evalInputWindow');
+        evalInputWindow.type = "text";
         evalWindow.appendChild(evalInputWindow);
     } else {
         console.error("calculatorBody not found!");
@@ -115,6 +116,37 @@ function createTopEvalPad() {
     }
 }
 
+function attachListeners() {
+
+    const outputWindow = document.querySelector('.evalInputWindow');
+
+    const numKey = document.querySelectorAll('.numKey');
+    numKey.forEach((key) => {
+        key.addEventListener('click', () => {
+            let numKeyId = key.id;
+            outputWindow.value += numKeyId; 
+        })
+    })
+
+    const evalKey = document.querySelectorAll('.evalKey')
+    evalKey.forEach((key => {
+        key.addEventListener('click', () => {
+        let evalKeyId = key.id;
+        outputWindow.value += evalKeyId; 
+        })
+    }))
+
+    const clearKey = document.getElementById('DEL');
+    const sumKey = document.getElementById('=');
+
+    clearKey.addEventListener('click', () => {
+        outputWindow.value = "";
+    })
+
+    sumKey.addEventListener('click', () => {
+        console.log("sum clicked");
+    })
+}
  createNumPad();
  populateNumPad();
  createEvalPad();
@@ -122,4 +154,4 @@ function createTopEvalPad() {
  createEvalWindow();
  createEvalInputWindow();
  createTopEvalPad();
-
+ attachListeners();
