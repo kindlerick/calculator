@@ -1,3 +1,14 @@
+:root {
+    --main-bg: rgb(241, 229, 229);
+    --secondary-bg: white;
+    --key-bg: rgb(226, 221, 221);
+    --border-radius: 7px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    --key-size: 7vh;
+    --font-size-large: 1.5rem;
+    --border-b: 1px solid black;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -9,9 +20,9 @@ html, body {
 .container {
     width: 50vh;
     height: 55vh;
-    background-color: rgb(241, 229, 229);
+    background-color: var(--main-bg);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     display: flex;
 }
 
@@ -29,26 +40,25 @@ html, body {
     flex-wrap: wrap;
     justify-content: space-evenly; 
     align-self: flex-end; 
-    background-color: white;
+    background-color: var(--secondary-bg);
     height: 35vh;
     width: 35vh;
     padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .numKey {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7.2vh;
-    width: 7.2vh;
+    height: var(--key-size);
+    width: var(--key-size);
     margin: 5px;
-    background-color: rgb(226, 221, 221);
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    text-align: center;
+    background-color: var(--key-bg);
+    border: var(--border-b);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
 }
 
 
@@ -59,16 +69,15 @@ html, body {
 .evalPadBody {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     align-items: center;
     height: 35vh;
     width: 10vh;
     padding: 10px;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    align-self: end;
-
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-bg);
+    box-shadow: var(--box-shadow);
+    align-self: end
 
 }
 
@@ -76,13 +85,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7.2vh;
-    width: 7.2vh;
+    height: var(--key-size);
+    width: var(--key-size);
     margin: 5px;
-    background-color: rgb(226, 221, 221);
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 1.5rem;
+    background-color: var(--key-bg);
+    border: var(--border-b);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
     text-align: center;
 }
 
@@ -111,10 +120,10 @@ html, body {
     justify-content: center;
     height: 15vh;
     width: 35vh;
-    background-color: white;
-    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
 
 }
 
@@ -123,7 +132,8 @@ html, body {
     align-self: center;
     height: 5vh;
     width: 25vh;
-    background-color: white;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
     font-size: large;
 }
 
@@ -135,10 +145,10 @@ html, body {
     align-items: center;
     height: 15vh; 
     width: 10vh;
-    background-color: white;
-    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius);
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
 
 }
 
@@ -146,12 +156,11 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7.2vh;
-    width: 7.2vh;
+    height: var(--key-size);
+    width: var(--key-size);
     margin: 5px;
-    background-color: rgb(226, 221, 221);
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    text-align: center;
+    background-color: var(--key-bg);
+    border: var(--border-b);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
 }

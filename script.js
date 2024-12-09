@@ -13,10 +13,11 @@ calculatorLowerBody.classList.add('lowerBody');
 calculatorBody.appendChild(calculatorLowerBody);
 
 const topPadArray = ["DEL", "="];
-
 const numPadArray = ["7","8","9","4","5","6","1","2","3","0","."];
-
 const evalPadArray = ["-", "+", "*", "/"];
+let numArray = [];
+let num1Result = 0;
+let firstNumber = false;
 
 function createEvalPad() {
 
@@ -116,25 +117,115 @@ function createTopEvalPad() {
     }
 }
 
+function createCalculator() {
+
+    createNumPad();
+    populateNumPad();
+    createEvalPad();
+    populateEvalPad();
+    createEvalWindow();
+    createEvalInputWindow();
+    createTopEvalPad();
+
+}
+
+let numbers = [];
+let operations = [];
+
+const outputWindow = document.querySelector('.evalInputWindow');
+
+function ifOperationValid() {
+
+    let evalRegex = /[+\-*/]/;
+    let myIndex;
+    
+    numArray.forEach((item, index) => {
+
+        if(evalRegex.test(item)){
+            operations.push(item);
+            myIndex = index;
+        }
+    });
+
+
+    if(operations.length > 1){
+        outputWindow.value = "ERROR";
+        operations = [];
+        return false;
+    }
+
+    let num1, num2;
+    
+    if(numbers.length === 0) {
+    num1 = numArray.slice(0, myIndex).join('');
+    num2 = numArray.slice(myIndex + 1).join('');
+    numbers.push(num1);
+    numbers.push(num2);
+    } else {
+        num2 = numArray.slice(myIndex + 1).join('');
+        numbers.push(num2);
+    }
+
+    if(numbers.length > 2) {
+        outputWindow.value = "ERROR";
+        numbers = [];
+        return false;
+    }
+
+    return true;
+
+}
+
+function clear() {
+    
+    numArray = [];
+    numbers = [];
+    operations = [];
+}
+
+
+function conductOperation() {
+
+        let num1 = parseFloat(numbers[0]);
+        let num2 = parseFloat(numbers[1]);
+        const operator = operations[0];
+
+        switch(operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '/':
+            return num1 / num2;
+        case '*':
+            return num1 * num2;
+        default:
+            return "ERROR";
+    }
+}
+
+
+let resultValue = 0;
+
 function attachListeners() {
 
     const outputWindow = document.querySelector('.evalInputWindow');
-
-    let numArray = [];
 
     const numKey = document.querySelectorAll('.numKey');
     numKey.forEach((key) => {
         key.addEventListener('click', () => {
             let numKeyId = key.id;
             outputWindow.value += numKeyId; 
+            numArray.push(numKeyId);
         })
     })
 
     const evalKey = document.querySelectorAll('.evalKey')
     evalKey.forEach((key => {
         key.addEventListener('click', () => {
-        let evalKeyId = key.id;
-        outputWindow.value += evalKeyId;
+            let evalKeyId = key.id;
+            outputWindow.value += evalKeyId;
+            numArray.push(evalKeyId);
         })
     }))
 
@@ -143,24 +234,21 @@ function attachListeners() {
 
     clearKey.addEventListener('click', () => {
         outputWindow.value = "";
+        clear();
     })
 
     sumKey.addEventListener('click', () => {
         console.log("sum clicked");
+        if(ifOperationValid()){
+            let input = conductOperation();
+            outputWindow.value = input.toFixed(2);
+            clear();
+            numbers.push(input);
+        }
     })
-}
-
-function operate() {
-
 
 }
 
- createNumPad();
- populateNumPad();
- createEvalPad();
- populateEvalPad();
- createEvalWindow();
- createEvalInputWindow();
- createTopEvalPad();
- attachListeners();
+createCalculator();
+attachListeners();
 

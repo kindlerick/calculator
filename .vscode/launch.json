@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "file:///home/sandm4n187/Desktop/calculator/index.html",
+            "request": "launch",
+            "url": "file:///home/sandm4n187/Desktop/calculator/index.html"
+        }
+    ]
+}
