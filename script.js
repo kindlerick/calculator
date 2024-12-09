@@ -177,7 +177,7 @@ function ifOperationValid() {
 }
 
 function clear() {
-    
+
     numArray = [];
     numbers = [];
     operations = [];
@@ -241,7 +241,7 @@ function attachListeners() {
         console.log("sum clicked");
         if(ifOperationValid()){
             let input = conductOperation();
-            outputWindow.value = input.toFixed(2);
+            outputWindow.value = input;
             clear();
             numbers.push(input);
         }
